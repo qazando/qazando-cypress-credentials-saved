@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-18T00:39:27.259Z",
+    "end": "2025-03-18T00:39:35.088Z",
+    "duration": 7829,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "702b1688-29e8-4af4-ac93-3fd81a332d22",
+      "title": "",
+      "fullFile": "cypress/e2e/login.cy.js",
+      "file": "cypress/e2e/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5d41d3db-eb98-4a28-a5aa-49263fad4f28",
+          "title": "Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login com sucesso",
+              "fullTitle": "Login Login com sucesso",
+              "timedOut": null,
+              "duration": 5509,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.acessarLogin();\n// cy.preencheEmail(\"eduardo.finotti@qazando.com\");\n// cy.preencheSenha(\"121212\");\n// cy.fazerLogin();\n// cy.validarLoginSucesso();\ncy.login(\"eduardo.finotti@qazando.com\", \"121212\");\ncy.validarLoginSucesso();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#swal2-title`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#swal2-title`, but never found it.\n    at Context.eval (webpack://cypress-web-masterclass-iii/./cypress/support/login_commands.js:21:25)\n    at wrapped (https://automationpratice.com.br/__cypress/runner/cypress_runner.js:138827:43)",
+                "diff": null
+              },
+              "uuid": "88a7be6a-8f29-4795-affc-32dd9c8039d3",
+              "parentUUID": "5d41d3db-eb98-4a28-a5aa-49263fad4f28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com email inválido",
+              "fullTitle": "Login Login com email inválido",
+              "timedOut": null,
+              "duration": 656,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// cy.acessarLogin();\n// cy.preencheEmail(\"23762732736\");\n// cy.preencheSenha(\"121212\");\n// cy.fazerLogin();\ncy.login(\"email invalido\", \"121212\");\ncy.validarErroLogin(\"E-mail inválido.\");",
+              "err": {},
+              "uuid": "2227714a-7716-44e0-bf38-0e0b73f5ef42",
+              "parentUUID": "5d41d3db-eb98-4a28-a5aa-49263fad4f28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com email vazio",
+              "fullTitle": "Login Login com email vazio",
+              "timedOut": null,
+              "duration": 647,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.acessarLogin();\ncy.preencheSenha(\"121212\");\ncy.fazerLogin();\ncy.validarErroLogin(\"E-mail inválido.\");",
+              "err": {},
+              "uuid": "bf7f08c4-87c8-49da-bb77-2208dff6fed1",
+              "parentUUID": "5d41d3db-eb98-4a28-a5aa-49263fad4f28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com senha vazia",
+              "fullTitle": "Login Login com senha vazia",
+              "timedOut": null,
+              "duration": 870,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.acessarLogin();\ncy.preencheEmail(\"eduardo.finotti@qazando.com\");\ncy.fazerLogin();\ncy.validarErroLogin(\"Senha inválida.\");",
+              "err": {},
+              "uuid": "0818cad6-2465-4de0-b48f-b39d2dff5e69",
+              "parentUUID": "5d41d3db-eb98-4a28-a5aa-49263fad4f28",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2227714a-7716-44e0-bf38-0e0b73f5ef42",
+            "bf7f08c4-87c8-49da-bb77-2208dff6fed1",
+            "0818cad6-2465-4de0-b48f-b39d2dff5e69"
+          ],
+          "failures": [
+            "88a7be6a-8f29-4795-affc-32dd9c8039d3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7682,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

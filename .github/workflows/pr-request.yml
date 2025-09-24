@@ -1,0 +1,34 @@
+name: Cypress Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    env: # 👈 define as variáveis a partir dos secrets
+      LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+      LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
+
+    steps:
+      - name: Baixando projeto
+        uses: actions/checkout@v4
+
+      - name: Instalando dependências
+        run: npm ci
+
+      - name: Executando teste cypress
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/login.cy.js
+
+      - name: Subindo relatório
+        if: always() # Sempre sobe, mesmo se quebrar
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report
+          path: mochawesome-report
+          retention-days: 3

@@ -1,6 +1,9 @@
 name: Cypress Tests
 
 on:
+  push:        # roda em qualquer push
+    branches:
+      - '**'
   pull_request:
     branches:
       - master

@@ -11,9 +11,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
-    env: # 👈 define as variáveis a partir dos secrets
-      LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
-      LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
+    env:
+      CYPRESS_LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+      CYPRESS_LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
 
     steps:
       - name: Baixando projeto

@@ -2,22 +2,24 @@ describe("Login", () => {
   let creds = { user: "", password: "" };
 
   before(() => {
-    const envUser = Cypress.env("LOGIN_EMAIL");
-    const envPass = Cypress.env("LOGIN_PASSWORD");
+  const envUser = Cypress.env("LOGIN_EMAIL");
+  const envPass = Cypress.env("LOGIN_PASSWORD");
 
-    // 1) Se vier do CI (envs definidas), usa direto e NÃO tenta ler arquivo
-    if (envUser && envPass) {
-      creds.user = envUser;
-      creds.password = envPass;
-      return; // importante: evita tentar ler a fixture no CI
+  if (envUser && envPass) {
+    creds.user = envUser;
+    creds.password = envPass;
+    return;
+  }
+
+  cy.readFile("cypress/fixtures/credentials.json", { log: false }).then((data) => {
+    creds.user = data.user || data.email;
+    creds.password = data.password || data.pass;
+  }).then(() => {
+    if (!creds.user || !creds.password) {
+      throw new Error("Credenciais não encontradas. Defina LOGIN_EMAIL/LOGIN_PASSWORD (ou CYPRESS_...) ou crie cypress/fixtures/credentials.json");
     }
-
-    // 2) Local: tenta ler a fixture (se não existir, falha com mensagem clara)
-    cy.readFile("cypress/fixtures/credentials.json", { log: false }).then((data) => {
-      creds.user = data.user || data.email;
-      creds.password = data.password || data.pass;
-    });
   });
+});
 
   it("Login com sucesso (fixture ou env)", () => {
     cy.visit("https://automationpratice.com.br/login");
